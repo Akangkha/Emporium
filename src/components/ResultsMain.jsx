@@ -9,6 +9,9 @@ const Results_main = (props) => {
     <ResultsCard/>
     <ResultsCard/>
     <ResultsCard/>
+    <ResultsCard/>
+    <ResultsCard/>
+    <ResultsCard/>
     </div>
   )
 }

@@ -1,7 +1,14 @@
+@mixin overflow{
+    
+    overflow-x: hidden;
+    }
+    
 .ResultsFilter
 {
-width:20%;
-margin-left: 5%;
+min-width:20%;
+max-width: 20%;
+margin:0 2.5% 0 2.5%;
+@include overflow()
 
 }
 
@@ -15,10 +22,16 @@ margin-left: 5%;
 {
     display: flex;
     flex-wrap: wrap;
-    margin:70px 0px 10px 30px;
+    margin:70px 0px 70px 0px;
+    @include overflow();
 }
 
 .ResultsCard
 {
     margin:10px;
+    border-radius: 4px;
+    img
+    {
+        border-radius: 4px;
+    }
 }

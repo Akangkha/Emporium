@@ -13,7 +13,7 @@ const SearchResults = (props) => {
           height: "200vh",
           width: "100vw",
           backgroundColor: "white",
-          overflowX: "hidden",
+          overflow: "hidden",
         }}
       >
         <ResultsFilter />
