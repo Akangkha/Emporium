@@ -2,7 +2,12 @@ import React from 'react'
 import ResultsCard from './ResultsCard'
 const Results_main = (props) => {
   return (
-    <div >
+    <div className='Results_main'>
+    <ResultsCard/>
+    <ResultsCard/>
+    <ResultsCard/>
+    <ResultsCard/>
+    <ResultsCard/>
     <ResultsCard/>
     </div>
   )

@@ -10,3 +10,15 @@ margin-left: 5%;
     font-size: 0.8rem;
     color: rgb(75, 75, 75)
 }
+
+.Results_main
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin:70px 0px 10px 30px;
+}
+
+.ResultsCard
+{
+    margin:10px;
+}

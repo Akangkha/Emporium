@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SuggestionBox from "./SuggestionBox";
-import ResultsMain from "./ResultsMain";
+import SearchResults from "../pages/SearchResults";
 import axios from "axios";
 const Search = () => {
   const [Suggestion, setSuggestion] = useState(false);
@@ -29,6 +29,13 @@ const Search = () => {
       "X-RapidAPI-Host": "asos10.p.rapidapi.com",
     },
   };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      window.location.pathname="/searchresults"
+    }
+  }
+
   async function getCategories() {
     try {
       const response = await axios.request(options);
@@ -47,17 +54,15 @@ const Search = () => {
         <input
           type="search"
           placeholder="Search"
-          onInput={(e) => setInput(e.target.value)}
+          onInput={(e) => setInput(e.target.value)}  onKeyDown={handleKeyDown}
         />
         <img src="/search_icon.png" alt="search-icon" height={25} />
       </div>
-      {/* {Suggestion &&
+      {/* (Suggestion &&
         suggestionItem !== null &&
         suggestionItem !== undefined &&
-        suggestionItem.length != 0 && <SuggestionBox trends={suggestionItem} />}
-      {console.log(Array.isArray(suggestionItem))} */}
-
-      <ResultsMain input={input} />
+        suggestionItem.length != 0 && <SuggestionBox trends={suggestionItem} />) */}
+      {console.log(Array.isArray(suggestionItem))}       
     </>
   );
 };

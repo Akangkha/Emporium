@@ -1,10 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 .SuggestionBox {
   background-color: white;
   width: 60%;
-  height: 65%;
   border-radius: 15px;
   position: absolute;
   top: 30%;
+  padding: 50px;
+  font-size: 120%;
+  height: 50%;
+}
+
+.ResultsFilter {
+  width: 20%;
+  margin-left: 5%;
+}
+
+#font {
+  font-size: 0.8rem;
+  color: rgb(75, 75, 75);
+}
+
+.Results_main {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 70px 0px 10px 30px;
+}
+
+.ResultsCard {
+  margin: 10px;
+}
+
+* {
+  font-family: "Inter", sans-serif;
 }
 
 .App {
@@ -42,4 +69,9 @@
   border: transparent;
   width: 100%;
   padding: 0;
+}
+
+.SearchResults {
+  padding-top: 10%;
+  overflow-y: scroll;
 }/*# sourceMappingURL=App.css.map */
