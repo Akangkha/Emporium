@@ -15,6 +15,7 @@
   max-width: 20%;
   margin: 0 2.5% 0 2.5%;
   overflow-x: hidden;
+  font-size: 0.8reml;
 }
 
 #font {
@@ -32,9 +33,30 @@
 .ResultsCard {
   margin: 10px;
   border-radius: 4px;
+  transition: all 0.8s ease-in-out;
 }
 .ResultsCard img {
   border-radius: 4px;
+}
+
+.more {
+  background-color: rgba(109, 132, 255, 0.7098039216);
+  width: 80%;
+  padding: 10px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.productImage::after {
+  content: "View Product";
+  background-color: rgba(109, 132, 255, 0.7098039216);
+  width: 80%;
+  padding: 10px 0px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 42px;
+  margin: 0;
 }
 
 * {

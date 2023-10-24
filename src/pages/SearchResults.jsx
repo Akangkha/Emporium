@@ -2,10 +2,10 @@ import React from "react";
 import ResultsMain from "../components/ResultsMain";
 import ResultsFilter from "../components/ResultsFilter";
 import Search from "../components/Search";
-const SearchResults = (props) => {
+const SearchResults = ({suggestionItem}) => {
   return (
     <>
-      <Search />
+      <Search/>
       <div
         className="SearchResults"
         style={{
@@ -15,9 +15,13 @@ const SearchResults = (props) => {
           backgroundColor: "white",
           overflow: "hidden",
         }}
-      >
+      >  
+      {}
+         
         <ResultsFilter />
-        <ResultsMain />
+        
+        <ResultsMain suggestionItem={suggestionItem} />
+
       </div>
     </>
   );

@@ -1,19 +1,13 @@
-import React from 'react'
-import ResultsCard from './ResultsCard'
-const Results_main = (props) => {
+import React from "react";
+import ResultsCard from "./ResultsCard";
+const Results_main = ({suggestionItem}) => {
   return (
-    <div className='Results_main'>
-    <ResultsCard/>
-    <ResultsCard/>
-    <ResultsCard/>
-    <ResultsCard/>
-    <ResultsCard/>
-    <ResultsCard/>
-    <ResultsCard/>
-    <ResultsCard/>
-    <ResultsCard/>
+    <div className="Results_main">
+  
+      <ResultsCard suggestionItem={suggestionItem} />
+      
     </div>
-  )
-}
+  );
+};
 
-export default Results_main
+export default Results_main;

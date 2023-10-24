@@ -42,7 +42,7 @@ const ResultsFilter = () => {
         </AccordionSummary>
         <AccordionDetails>
           <FormGroup>
-          <div>  <FormControlLabel
+          <div >  <FormControlLabel
               control={<Checkbox defaultChecked />}
             />Under 500</div>
            <div> <FormControlLabel control={<Checkbox />} />1000 - 3000</div>
