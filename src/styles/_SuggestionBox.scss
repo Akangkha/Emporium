@@ -19,7 +19,7 @@
 p
 {
   color:#000000cc;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 300;
   margin-bottom: 6px;
 }
@@ -37,4 +37,9 @@ p
 
 .trends::-webkit-scrollbar {
   display: none;
+}
+
+.trends>div{
+  margin:0px 10px;
+  padding: 0px 5px;
 }
