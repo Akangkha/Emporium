@@ -5,7 +5,22 @@
   border-radius: 15px;
   position: absolute;
   top:30%;
-  padding: 50px;
+  padding: 10px 20px;
   font-size: 120%;
-  height: 50%;
+  overflow-x: hidden;
+  height: 66vh;  
+}
+
+p
+{
+  color:#000000cc;
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+
+.trends
+{
+  display:flex ;
+  justify-content: space-between;
 }

@@ -1,11 +1,11 @@
 import React from "react";
-const SuggestionCard = (props) => {
+const SuggestionCard = () => {
   return (
     <>
       <div>
-      <img src={props.photos} alt="Trending item photos"></img>
-      <p>{props.categories}</p>
-      </div>;
+      <img src="https://images.asos-media.com/products/bolongaro-trevor-shearling-trimmed-leather-jacket-in-black/201691488-1-black" alt="Trending item photos" width="150rem"></img>
+      <p>hello</p>
+      </div>
     </>
   );
 };
