@@ -11,6 +11,9 @@ const SuggestionBox = () => {
         <SuggestionCard/>
         <SuggestionCard/>
         <SuggestionCard/>
+        <SuggestionCard/>
+        <SuggestionCard/>
+        <SuggestionCard/>
        
     </div>
 

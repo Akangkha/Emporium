@@ -8,9 +8,14 @@
   padding: 10px 20px;
   font-size: 120%;
   overflow-x: hidden;
-  height: 66vh;  
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+  height: 60vh;  
 }
 
+.SuggestionBox::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
 p
 {
   color:#000000cc;
@@ -23,4 +28,13 @@ p
 {
   display:flex ;
   justify-content: space-between;
+  overflow-y: hidden;
+    overflow: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  padding-bottom: 10px;
+}
+
+.trends::-webkit-scrollbar {
+  display: none;
 }
