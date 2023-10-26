@@ -11,7 +11,7 @@ const Search = () => {
   const handleKeyDown = (event) => {  //to route to the result page after the user presses enter
     if (event.key === "Enter" && input!=='' && input!==false) {
       setSuggestion(false);
-      window.location.href = `/searchresults?q=${input}`;
+      window.location.replace(`/searchresults?q=${input}`);
     }
   };
 

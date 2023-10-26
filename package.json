@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "browserslist": "^4.22.1"
+    
   }
 }
 
