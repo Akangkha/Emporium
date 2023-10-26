@@ -11,9 +11,9 @@ const SearchResults = (props) => {
   const [suggestionItem, setSuggestionItem] = useState([]);
   const [isComponentVisible, setComponentVisibility] = useState(true);
   const [dataNotFound, setDataNotFound] = useState(false);
- 
 
-  const handleTriggerClick = () => {    //for the filter sidebar
+  const handleTriggerClick = () => {
+    //for the filter sidebar
     setComponentVisibility(!isComponentVisible);
   };
 
@@ -26,12 +26,12 @@ const SearchResults = (props) => {
       q: `${receivedData}`,
     },
     headers: {
-      "X-RapidAPI-Key": "7853b079f8msh7003c72521c9ba3p1992dejsnd3676587477e",
+      "X-RapidAPI-Key": "0c0cba9361msh98fbd891a5430bdp1d3a67jsn286403253036",
       "X-RapidAPI-Host": "asos-com1.p.rapidapi.com",
     },
   };
 
-  const fetchData = async () => {   
+  const fetchData = async () => {
     try {
       setLoading(true);
       const response = await axios.request(options);
@@ -49,13 +49,12 @@ const SearchResults = (props) => {
     return () => {
       debouncedFetchData.cancel();
     };
-     // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
-
-
-  var filteredd = []; 
-  const handleFilterChange = (selectedFilter) => {  //receives the selected value from the child component and checks for the filter and stores the filtered data for the same
+  var filteredd = [];
+  const handleFilterChange = (selectedFilter) => {
+    //receives the selected value from the child component and checks for the filter and stores the filtered data for the same
     console.log(selectedFilter);
     setLoading(true);
     setDataNotFound(true);
@@ -80,12 +79,12 @@ const SearchResults = (props) => {
           item.price.current.value > 100 && item.price.current.value < 500
       );
     }
-    
+
     setSuggestionItem(filteredd); //filtered data is stored for it to be displayed
     setLoading(false);
     if (filteredd.length === 0) {
       setDataNotFound(true); //in-case no data is available for the filter preferences
-      fetchData()
+      fetchData();
     }
   };
   return (
@@ -112,15 +111,17 @@ const SearchResults = (props) => {
 
         <div className="Results_main">
           {!loading ? (
-            suggestionItem.map((item, index) => (
-              <ResultsCard          //displays the data 
-                imageUrl={item.imageUrl}
-                key={index}
-                name={item.name}
-                current={item.price.current.text}
-                rrp={item.price.rrp.text}
-              />
-            ))
+            <div style={{ display:"flex",flexWrap:"wrap",width:"100%" }}>
+              {suggestionItem.map((item, index) => (
+                <ResultsCard //displays the data
+                  imageUrl={item.imageUrl}
+                  key={index}
+                  name={item.name}
+                  current={item.price.current.text}
+                  rrp={item.price.rrp.text}
+                />
+              ))}
+            </div>
           ) : (
             <Hourglass
               visible={true}
@@ -132,8 +133,9 @@ const SearchResults = (props) => {
               colors={["#A2A0A4", "#FFBA9F"]}
             />
           )}
-          {!loading && dataNotFound && suggestionItem.length===0 && <p>Sorry , such items are not present in the store !</p> } 
-          
+          {!loading && dataNotFound && suggestionItem.length === 0 && (
+            <p>Sorry , such items are not present in the store !</p>
+          )}
         </div>
       </div>
     </>
