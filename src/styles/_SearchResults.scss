@@ -3,7 +3,11 @@
 overflow-x: hidden;
 }
 
-
+@mixin center 
+{
+    justify-content: center;
+    align-items: center;
+} 
 .ResultsFilter
 {
 width: 40vw;
@@ -28,8 +32,7 @@ font-size:0.8rem;
     margin:70px 0px 70px 0px;
     @include overflow();
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    @include center()
      
 }
 
@@ -94,14 +97,11 @@ font-size:0.8rem;
     width: 100%;
     padding: 0;
     margin: 100px 20px;
-    justify-content: center;
-    align-items: center;
+    
   }
 
-  .SearchResults
-  {
-    display: flex;
-    justify-content: center;
+  .Results{
+    @include center()
   }
  
   .ResultsFilter

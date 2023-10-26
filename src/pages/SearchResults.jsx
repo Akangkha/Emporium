@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 const SearchResults = (props) => {
   const [loading, setLoading] = useState(false);
   const [suggestionItem, setSuggestionItem] = useState([]);
-  const [isComponentVisible, setComponentVisibility] = useState(true);
+  const [isComponentVisible, setComponentVisibility] = useState(false);
   const [dataNotFound, setDataNotFound] = useState(false);
 
   const handleTriggerClick = () => {
@@ -111,7 +111,7 @@ const SearchResults = (props) => {
 
         <div className="Results_main">
           {!loading ? (
-            <div style={{ display:"flex",flexWrap:"wrap",width:"100%" }}>
+            <div className="Results"style={{ display:"flex",flexWrap:"wrap",width:"100%" }}>
               {suggestionItem.map((item, index) => (
                 <ResultsCard //displays the data
                   imageUrl={item.imageUrl}
