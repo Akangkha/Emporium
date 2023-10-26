@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import StarIcon from "@mui/icons-material/Star";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 const ResultsCard = ({ imageUrl, rrp, current, index, name }) => {
-  const [iconColor, setIconColor] = useState("black"); 
+  //component which receives the data like imageUrl etc. and displays it in the result card
+  const [iconColor, setIconColor] = useState("black");
 
   const handleColor = () => {
-   
-    setIconColor(iconColor === "red" ? "black" : "red");
+    setIconColor(iconColor === "red" ? "black" : "red"); //wish-list color change
   };
   const image = "https://" + imageUrl;
   if (rrp === "") {
@@ -15,27 +15,25 @@ const ResultsCard = ({ imageUrl, rrp, current, index, name }) => {
   }
   return (
     <div className="ResultsCard">
-      
-        <div className="productImage">
+      <div className="productImage">
         <img key={index} src={image} width="80%" alt="product"></img>
-      
-      <div    className="wishList">
-        <FavoriteIcon
-          onClick={handleColor}
-       
-          style={{
-            color: iconColor,
-            position: "relative",
-            right:"40px",
-            top:"10px"
-          }}
-        />
+
+        <div className="wishList">
+          <FavoriteIcon
+            onClick={handleColor}
+            style={{
+              color: iconColor,
+              position: "relative",
+              right: "40px",
+              top: "10px",
+            }}
+          />
+        </div>
       </div>
-      </div>
-      <div className="viewProduct" >View product</div>
-      
+      <div className="viewProduct">View product</div>
+
       <div className="info">
-        <p style={{fontWeight:"bold"}}>{name}</p>
+        <p style={{ fontWeight: "bold" }}>{name}</p>
         <div>
           <span style={{ textDecoration: "line-through", color: "#00000066" }}>
             ${rrp}

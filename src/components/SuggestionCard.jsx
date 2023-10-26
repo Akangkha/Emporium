@@ -1,5 +1,6 @@
 import React from "react";
 const SuggestionCard = ({name,url}) => {
+  //receives the name and image for the latest trends section cards
   return (
     <>
       <div >

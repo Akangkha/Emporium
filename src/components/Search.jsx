@@ -4,12 +4,12 @@ const Search = () => {
   const [Suggestion, setSuggestion] = useState(false); 
   const [input, setInput] = useState(false);
   
-  const handleClick = (event) => {
+  const handleClick = (event) => {   //for triggering the latest trends box when search is clicked
     setSuggestion(true);
   };
   
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
+  const handleKeyDown = (event) => {  //to route to the result page after the user presses enter
+    if (event.key === "Enter" && input!=='' && input!==false) {
       setSuggestion(false);
       window.location.href = `/searchresults?q=${input}`;
     }

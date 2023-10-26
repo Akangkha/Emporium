@@ -13,7 +13,7 @@ const SearchResults = (props) => {
   const [dataNotFound, setDataNotFound] = useState(false);
  
 
-  const handleTriggerClick = () => {
+  const handleTriggerClick = () => {    //for the filter sidebar
     setComponentVisibility(!isComponentVisible);
   };
 
@@ -31,7 +31,7 @@ const SearchResults = (props) => {
     },
   };
 
-  const fetchData = async () => {
+  const fetchData = async () => {   
     try {
       setLoading(true);
       const response = await axios.request(options);
@@ -43,16 +43,19 @@ const SearchResults = (props) => {
     }
   };
 
-  const debouncedFetchData = debounce(fetchData, 2500);
+  const debouncedFetchData = debounce(fetchData, 2500); //this is to control the rate of API calls
   useEffect(() => {
     debouncedFetchData();
-
     return () => {
       debouncedFetchData.cancel();
     };
+     // eslint-disable-next-line
   }, []);
-  var filteredd = [];
-  const handleFilterChange = (selectedFilter) => {
+
+
+
+  var filteredd = []; 
+  const handleFilterChange = (selectedFilter) => {  //receives the selected value from the child component and checks for the filter and stores the filtered data for the same
     console.log(selectedFilter);
     setLoading(true);
     setDataNotFound(true);
@@ -78,10 +81,10 @@ const SearchResults = (props) => {
       );
     }
     
-    setSuggestionItem(filteredd);
+    setSuggestionItem(filteredd); //filtered data is stored for it to be displayed
     setLoading(false);
     if (filteredd.length === 0) {
-      setDataNotFound(true);
+      setDataNotFound(true); //in-case no data is available for the filter preferences
       fetchData()
     }
   };
@@ -110,7 +113,7 @@ const SearchResults = (props) => {
         <div className="Results_main">
           {!loading ? (
             suggestionItem.map((item, index) => (
-              <ResultsCard
+              <ResultsCard          //displays the data 
                 imageUrl={item.imageUrl}
                 key={index}
                 name={item.name}
@@ -129,7 +132,8 @@ const SearchResults = (props) => {
               colors={["#A2A0A4", "#FFBA9F"]}
             />
           )}
-          {!loading && dataNotFound && suggestionItem.length==0 && <p>Sorry , such items are not present in the store !</p>}
+          {!loading && dataNotFound && suggestionItem.length===0 && <p>Sorry , such items are not present in the store !</p> } 
+          
         </div>
       </div>
     </>

@@ -12,11 +12,13 @@ import StarIcon from "@mui/icons-material/Star";
 
 const ResultsFilter = ({ onFilterChange }) => {
   const [checkboxStates, setCheckboxStates] = useState({
+    //stores the preferences of the filter
     option1: false,
     option2: false,
     option3: false,
     option4: false,
   });
+
   const handleCheckboxChange = (value) => {
     setCheckboxStates((prevStates) => ({
       ...prevStates,

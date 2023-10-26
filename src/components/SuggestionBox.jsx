@@ -3,6 +3,7 @@ import SuggestionCard from "./SuggestionCard";
 import { Hourglass } from "react-loader-spinner";
 import axios from "axios";
 const SuggestionBox = () => {
+  //component which is visible when user clicks the search bar or writes anything 
   const [trends, setTrends] = useState([]);
   const [loading, setLoading] = useState(false);
   const options = {
@@ -20,7 +21,7 @@ const SuggestionBox = () => {
     },
   };
 
-  async function fetchTrends() {
+  async function fetchTrends() {   //API call for the latest trends data
     setLoading(true);
     try {
       const response = await axios.request(options);
@@ -34,6 +35,7 @@ const SuggestionBox = () => {
 
   useEffect(() => {
     fetchTrends();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -42,7 +44,7 @@ const SuggestionBox = () => {
       <div className="trends">
         {!loading ? (
           trends.map((item, index) => (
-            <SuggestionCard name={item.name} url={item.images[0].url} />
+            <SuggestionCard name={item.name} url={item.images[0].url} />  //displaying latest trends data 
           ))
         ) : (
           <Hourglass
