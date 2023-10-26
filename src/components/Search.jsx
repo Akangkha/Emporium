@@ -5,11 +5,12 @@ const Search = () => {
   const [input, setInput] = useState(false);
   
   const handleClick = (event) => {
-    setSuggestion((current) => !current);
+    setSuggestion(true);
   };
   
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
+      setSuggestion(false);
       window.location.href = `/searchresults?q=${input}`;
     }
   };

@@ -10,15 +10,15 @@ const SearchResults = (props) => {
   const [loading, setLoading] = useState(false);
   const [suggestionItem, setSuggestionItem] = useState([]);
   const [isComponentVisible, setComponentVisibility] = useState(true);
+  const [dataNotFound, setDataNotFound] = useState(false);
+ 
 
   const handleTriggerClick = () => {
     setComponentVisibility(!isComponentVisible);
-  
   };
 
   const searchParams = new URLSearchParams(window.location.search);
   const receivedData = searchParams.get("q");
-  var filterArray;
   const options = {
     method: "GET",
     url: "https://asos-com1.p.rapidapi.com/products/search",
@@ -51,7 +51,40 @@ const SearchResults = (props) => {
       debouncedFetchData.cancel();
     };
   }, []);
-
+  var filteredd = [];
+  const handleFilterChange = (selectedFilter) => {
+    console.log(selectedFilter);
+    setLoading(true);
+    setDataNotFound(true);
+    if (selectedFilter.option1) {
+      filteredd = suggestionItem.filter(
+        (item) => item.brandName === "Bolongaro Trevor"
+      );
+    }
+    if (selectedFilter.option2) {
+      filteredd = suggestionItem.filter(
+        (item) => item.brandName === "Calvin Klein"
+      );
+    }
+    if (selectedFilter.option3) {
+      filteredd = suggestionItem.filter(
+        (item) => item.price.current.value < 100
+      );
+    }
+    if (selectedFilter.option4) {
+      filteredd = suggestionItem.filter(
+        (item) =>
+          item.price.current.value > 100 && item.price.current.value < 500
+      );
+    }
+    
+    setSuggestionItem(filteredd);
+    setLoading(false);
+    if (filteredd.length === 0) {
+      setDataNotFound(true);
+      fetchData()
+    }
+  };
   return (
     <>
       <Search />
@@ -65,13 +98,14 @@ const SearchResults = (props) => {
           overflow: "hidden",
         }}
       >
-        
-
         <MenuIcon
-          style={{ position: "absolute", top: "30px", left: "10px" }} className="menu"
+          style={{ position: "absolute", top: "30px", left: "10px" }}
+          className="menu"
           onClick={handleTriggerClick}
-        /> 
-        {isComponentVisible && <ResultsFilter />}
+        />
+        {isComponentVisible && (
+          <ResultsFilter onFilterChange={handleFilterChange} />
+        )}
 
         <div className="Results_main">
           {!loading ? (
@@ -95,6 +129,7 @@ const SearchResults = (props) => {
               colors={["#A2A0A4", "#FFBA9F"]}
             />
           )}
+          {!loading && dataNotFound && suggestionItem.length==0 && <p>Sorry , such items are not present in the store !</p>}
         </div>
       </div>
     </>
