@@ -10,7 +10,10 @@ import Checkbox from "@mui/material/Checkbox";
 import StarIcon from "@mui/icons-material/Star";
 
 
-const ResultsFilter = () => {
+const ResultsFilter = ({filtered}) => {
+  const onClick = (option) => {
+     console.log(option);
+  };
   return (
     <div className="ResultsFilter">
        <h2>Search Results</h2>
@@ -25,10 +28,10 @@ const ResultsFilter = () => {
         <AccordionDetails>
           <FormGroup >
             <FormControlLabel
-              control={<Checkbox defaultChecked />}
+              control={<Checkbox/>} onClick={onClick(1)}
               label="Mango" id="font"
             />
-            <FormControlLabel required control={<Checkbox />} label="H&M" id="font"/>
+            <FormControlLabel required control={<Checkbox />} onClick={onClick(2)} label="H&M" id="font"/>
           </FormGroup>
         </AccordionDetails>
       </Accordion>
@@ -42,10 +45,10 @@ const ResultsFilter = () => {
         </AccordionSummary>
         <AccordionDetails>
           <FormGroup>
-          <div >  <FormControlLabel
-              control={<Checkbox defaultChecked />}
+          <div >  <FormControlLabel onClick={onClick(3)} 
+              control={<Checkbox  />}
             />Under 500</div>
-           <div> <FormControlLabel control={<Checkbox />} />1000 - 3000</div>
+           <div> <FormControlLabel onClick={onClick(4)}control={<Checkbox  />} />1000 - 3000</div>
           </FormGroup>
         </AccordionDetails>
       </Accordion>

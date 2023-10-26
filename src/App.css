@@ -11,6 +11,8 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
   height: 60vh;
+  z-index: 100;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .SuggestionBox::-webkit-scrollbar {
@@ -44,11 +46,14 @@ p {
 }
 
 .ResultsFilter {
-  min-width: 20%;
-  max-width: 20%;
+  width: 40vw;
   margin: 0 2.5% 0 2.5%;
   overflow-x: hidden;
-  font-size: 0.8reml;
+  font-size: 0.8rem;
+}
+
+.menu {
+  display: none;
 }
 
 #font {
@@ -61,16 +66,15 @@ p {
   flex-wrap: wrap;
   margin: 70px 0px 70px 0px;
   overflow-x: hidden;
-  min-width: 75%;
-  max-width: 75%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .ResultsCard {
   margin: 40px 20px;
   border-radius: 4px;
   transition: all 0.8s ease-in-out;
-  display: grid;
-  grid-template-rows: 2fr 1fr;
   box-sizing: border-box;
   width: 232px;
 }
@@ -80,12 +84,17 @@ p {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.more {
+.viewProduct {
   background-color: rgba(109, 132, 255, 0.7098039216);
-  width: 80%;
+  color: white;
   padding: 10px 0px;
   display: flex;
   justify-content: center;
+  height: -moz-min-content;
+  height: min-content;
+  opacity: 0;
+  position: relative;
+  bottom: 40px;
 }
 
 .info, .wishList {
@@ -100,6 +109,39 @@ p {
   display: flex;
 }
 
+.productImage:hover + .viewProduct {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 600px) {
+  .menu {
+    display: block;
+  }
+  .Results_main {
+    width: 100%;
+    padding: 0;
+    margin: 100px;
+  }
+  .SearchResults {
+    display: flex;
+    justify-content: center;
+  }
+  .ResultsFilter {
+    width: 60vw;
+    z-index: 400;
+  }
+  .ResultsFilter {
+    z-index: 100;
+    position: absolute;
+    box-shadow: rgba(70, 73, 77, 0.2) 0px 8px 24px;
+    width: 80vw;
+    background-color: white;
+  }
+  .ResultsFilter h2 {
+    padding-left: 15px;
+  }
+}
 * {
   font-family: "Inter", sans-serif;
 }
@@ -126,7 +168,7 @@ p {
   background: white;
   width: 40%;
   height: 4%;
-  top: 20%;
+  top: 80px;
   border: 1px solid grey;
   border-radius: 15px;
   display: flex;

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import SuggestionCard from "./SuggestionCard";
+import { Hourglass } from "react-loader-spinner";
 import axios from "axios";
 const SuggestionBox = () => {
   const [trends, setTrends] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   const options = {
     method: "GET",
     url: "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list",
@@ -20,12 +21,14 @@ const SuggestionBox = () => {
   };
 
   async function fetchTrends() {
+    setLoading(true);
     try {
       const response = await axios.request(options);
       setTrends(response.data.results);
-     
+      setLoading(false);
     } catch (error) {
       console.error(error);
+      setLoading(false);
     }
   }
 
@@ -33,14 +36,25 @@ const SuggestionBox = () => {
     fetchTrends();
   }, []);
 
-  
   return (
     <div className="SuggestionBox">
       <h4>Latest Trends</h4>
       <div className="trends">
-        {trends.map((item, index) => (
-          <SuggestionCard name={item.name} url={item.images[0].url}/>
-        ))}
+        {!loading ? (
+          trends.map((item, index) => (
+            <SuggestionCard name={item.name} url={item.images[0].url} />
+          ))
+        ) : (
+          <Hourglass
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="hourglass-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            colors={["#A2A0A4", "#FFBA9F"]}
+          />
+        )}
       </div>
 
       <div className="popularSuggestion">

@@ -1,7 +1,7 @@
 import "./App.scss";
 import Search from "./components/Search";
 import SearchResults from "./pages/SearchResults";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   return (
     <div className="App">
@@ -11,9 +11,9 @@ function App() {
         alt="company_logo"
         draggable="false"
       />
+      <Search/>
       <Router>
         <Routes>
-          <Route path="/" element={<Search />} />
           <Route path="searchresults" element={<SearchResults />} />
         </Routes>
       </Router>

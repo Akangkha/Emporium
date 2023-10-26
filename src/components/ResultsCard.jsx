@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import StarIcon from "@mui/icons-material/Star";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 const ResultsCard = ({ imageUrl, rrp, current, index, name }) => {
-  const [iconColor, setIconColor] = useState("black"); // Initial color
+  const [iconColor, setIconColor] = useState("black"); 
 
   const handleColor = () => {
-    // Change the color when the icon is clicked
+   
     setIconColor(iconColor === "red" ? "black" : "red");
   };
   const image = "https://" + imageUrl;
@@ -15,7 +15,8 @@ const ResultsCard = ({ imageUrl, rrp, current, index, name }) => {
   }
   return (
     <div className="ResultsCard">
-      <div className="productImage">
+      
+        <div className="productImage">
         <img key={index} src={image} width="80%" alt="product"></img>
       
       <div    className="wishList">
@@ -31,8 +32,10 @@ const ResultsCard = ({ imageUrl, rrp, current, index, name }) => {
         />
       </div>
       </div>
+      <div className="viewProduct" >View product</div>
+      
       <div className="info">
-        <p>{name}</p>
+        <p style={{fontWeight:"bold"}}>{name}</p>
         <div>
           <span style={{ textDecoration: "line-through", color: "#00000066" }}>
             ${rrp}

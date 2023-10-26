@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
 import ResultsFilter from "../components/ResultsFilter";
+import { Hourglass } from "react-loader-spinner";
 import Search from "../components/Search";
 import ResultsCard from "../components/ResultsCard";
 import debounce from "lodash/debounce";
+import MenuIcon from "@mui/icons-material/Menu";
 const SearchResults = (props) => {
   const [loading, setLoading] = useState(false);
   const [suggestionItem, setSuggestionItem] = useState([]);
+  const [isComponentVisible, setComponentVisibility] = useState(true);
+
+  const handleTriggerClick = () => {
+    setComponentVisibility(!isComponentVisible);
+  
+  };
 
   const searchParams = new URLSearchParams(window.location.search);
   const receivedData = searchParams.get("q");
-
+  var filterArray;
   const options = {
     method: "GET",
     url: "https://asos-com1.p.rapidapi.com/products/search",
@@ -58,15 +65,39 @@ const SearchResults = (props) => {
           overflow: "hidden",
         }}
       >
-        <ResultsFilter />
+        
+
+        <MenuIcon
+          style={{ position: "absolute", top: "30px", left: "10px" }} className="menu"
+          onClick={handleTriggerClick}
+        /> 
+        {isComponentVisible && <ResultsFilter />}
 
         <div className="Results_main">
-          {suggestionItem.map((item, index) => (
-            <ResultsCard imageUrl={item.imageUrl} key={index} name={item.name} current={item.price.current.text} rrp={item.price.rrp.text} />
-          ))}
+          {!loading ? (
+            suggestionItem.map((item, index) => (
+              <ResultsCard
+                imageUrl={item.imageUrl}
+                key={index}
+                name={item.name}
+                current={item.price.current.text}
+                rrp={item.price.rrp.text}
+              />
+            ))
+          ) : (
+            <Hourglass
+              visible={true}
+              height="80"
+              width="80"
+              ariaLabel="hourglass-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              colors={["#A2A0A4", "#FFBA9F"]}
+            />
+          )}
         </div>
       </div>
-      </>
+    </>
   );
 };
 
