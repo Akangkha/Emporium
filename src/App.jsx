@@ -14,7 +14,7 @@ function App() {
       <Search/>
       <Router>
         <Routes>
-          <Route path="searchresults" element={<SearchResults />} />
+          <Route path="/searchresults" element={<SearchResults />} />
         </Routes>
       </Router>
     </div>

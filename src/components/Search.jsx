@@ -12,6 +12,7 @@ const Search = () => {
     if (event.key === "Enter" && input!=='' && input!==false) {
       setSuggestion(false);
       window.location.replace(`/searchresults?q=${input}`);
+ 
     }
   };
 
