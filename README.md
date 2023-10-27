@@ -1,7 +1,10 @@
-<h1>Shopify </h1>
+#Shopify 
 A fully responsive ecommerce react app for you to search clothing items .
+
 App features:
+
 1) allows user to search clothings according to their choice
+
 ![screen1](https://github.com/Akangkha/shopify/assets/113259853/9e3f365f-5619-457e-80cf-98837ead7580)
 
 
