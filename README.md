@@ -1,4 +1,5 @@
-#Shopify 
+# Shopify
+
 A fully responsive ecommerce react app for you to search clothing items .
 
 App features:
