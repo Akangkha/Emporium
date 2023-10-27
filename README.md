@@ -2,7 +2,8 @@
 A fully responsive ecommerce react app for you to search clothing items .
 App features:
 1) allows user to search clothings according to their choice
-![screen1](https://github.com/Akangkha/shopify/assets/113259853/7d51c91f-a042-4ad5-a40d-e7079cda16de)
+![screen1](https://github.com/Akangkha/shopify/assets/113259853/9e3f365f-5619-457e-80cf-98837ead7580)
+
 
 2)Provides the user the latest trends ongoing 
 ![screen2](https://github.com/Akangkha/shopify/assets/113259853/5b1e29d2-543d-405a-9b1d-4a83ea6b3a7a)
